@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgregori <rgregori@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jtertuli <jtertuli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/03 12:41:43 by rgregori          #+#    #+#             */
-/*   Updated: 2025/05/03 13:33:08 by rgregori         ###   ########.fr       */
+/*   Created: 2025/05/05 07:24:30 by jtertuli          #+#    #+#             */
+/*   Updated: 2025/05/05 07:39:01 by jtertuli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rush02.h"
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+int	main(int argc, char **argv)
 {
 	int	i;
+	int	j;
 
-	i++;
-	while (str[i])
+	i = argc - argc;
+	j = 0;
+	while (argv[i][j])
 	{
-		write(1, str[i], 1);
-		i++;
+		write(1, &argv[i][j], 1);
+		j++;
 	}
-}
-
-void	ft_puterror(char *str)
-{
-	int	i;
-
-	i++;
-	while (str[i])
-	{
-		write(2, str[i], 1);
-		i++;
-	}
+	write(1, "\n", 1);
+	return (0);
 }

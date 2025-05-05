@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rgregori <rgregori@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jtertuli <jtertuli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/03 12:38:38 by rgregori          #+#    #+#             */
-/*   Updated: 2025/05/03 13:32:48 by rgregori         ###   ########.fr       */
+/*   Created: 2025/05/05 07:24:40 by jtertuli          #+#    #+#             */
+/*   Updated: 2025/05/05 07:25:44 by jtertuli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rush02.h"
+#include <unistd.h>
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	if (!(argc == 2 || argc == 3))
+	int	i;
+	int	j;
+
+	i = argc - 1;
+	while (i > 0)
 	{
-		ft_puterror("Error\n");
-		return (1);
+		j = 0;
+		while (argv[i][j])
+		{
+			write(1, &argv[i][j], 1);
+			j++;
+		}
+		write(1, "\n", 1);
+		i--;
 	}
-	if (!ft_is_valid_number(argv[argc -1]))
-	{
-		ft_puterror("Error\n");
-		return (1);
-	}
+	return (0);
 }
